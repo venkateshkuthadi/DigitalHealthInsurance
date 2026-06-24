@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Health Insurance Register</title>
+<title>Health Insurance Registration</title>
 
 <style>
     body {
         font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(to right, #667eea, #764ba2);
+        background: linear-gradient(to right, #4facfe, #00f2fe);
     }
 
     .container {
-        width: 400px;
-        margin: 60px auto;
+        width: 500px;
+        margin: 40px auto;
         background: #fff;
         padding: 30px;
         border-radius: 12px;
@@ -21,8 +21,13 @@
 
     h2 {
         text-align: center;
-        margin-bottom: 20px;
-        color: #333;
+        color: #2c3e50;
+    }
+
+    p {
+        text-align: center;
+        font-size: 14px;
+        color: #666;
     }
 
     label {
@@ -44,8 +49,8 @@
     }
 
     input:focus, select:focus {
-        border-color: #667eea;
-        box-shadow: 0 0 5px rgba(102,126,234,0.5);
+        border-color: #4facfe;
+        box-shadow: 0 0 5px rgba(79,172,254,0.5);
     }
 
     .password-rules {
@@ -60,18 +65,12 @@
     button {
         width: 100%;
         padding: 12px;
-        background: linear-gradient(to right, #667eea, #764ba2);
+        background: linear-gradient(to right, #4facfe, #00f2fe);
         color: white;
         border: none;
         border-radius: 8px;
+        font-size: 16px;
         cursor: pointer;
-    }
-
-    .toggle {
-        float: right;
-        cursor: pointer;
-        font-size: 12px;
-        color: #667eea;
     }
 
     .footer {
@@ -81,7 +80,7 @@
     }
 
     .footer a {
-        color: #667eea;
+        color: #007bff;
         text-decoration: none;
         font-weight: bold;
     }
@@ -91,8 +90,8 @@
 <body>
 
 <div class="container">
-    <!-- ✅ Changed Title -->
     <h2>Health Insurance Registration</h2>
+    <p>Secure your health with the best insurance plans</p>
 
     <form>
 
@@ -102,41 +101,61 @@
         <label class="required">Email</label>
         <input type="email" required>
 
-        <label class="required">Password <span class="toggle" onclick="togglePassword()">Show</span></label>
-        <input type="password" id="password" required onkeyup="checkPassword()">
+        <!-- Password -->
+        <label class="required">Password</label>
+        <input type="password" id="password" required
+        pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}"
+        title="Must contain at least 8 characters, one uppercase, one number, one special character"
+        onkeyup="checkPassword()">
 
         <div class="password-rules">
-            <div id="upper" class="invalid">• At least one uppercase letter</div>
-            <div id="number" class="invalid">• At least one number</div>
-            <div id="symbol" class="invalid">• At least one special character</div>
+            <div id="upper" class="invalid">• One uppercase letter</div>
+            <div id="number" class="invalid">• One number</div>
+            <div id="symbol" class="invalid">• One special character</div>
             <div id="length" class="invalid">• Minimum 8 characters</div>
         </div>
 
-        <label class="required">Phone Number</label>
-        <input type="tel" pattern="[0-9]{10}" placeholder="10 digits" required>
+        <!-- ✅ Fixed Section (Separate Lines) -->
+        <label class="required">Phone</label>
+        <input type="tel" pattern="[0-9]{10}" required>
 
         <label>Alternate Phone</label>
-        <input type="tel" pattern="[0-9]{10}" placeholder="Optional">
+        <input type="tel" pattern="[0-9]{10}">
 
         <label class="required">Date of Birth</label>
         <input type="date" required>
 
+        <label class="required">Gender</label>
+        <select required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
         <label class="required">Address</label>
         <textarea rows="3" required></textarea>
 
-        <!-- ✅ NEW DROPDOWN -->
+        <!-- Insurance -->
         <label class="required">Do you want to take a policy?</label>
         <select required>
-            <option value="">Select Option</option>
-            <option value="yes">Yes, I want a policy</option>
-            <option value="no">No, just registering</option>
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
+        <label>Choose Policy Type</label>
+        <select>
+            <option value="">Select Policy</option>
+            <option>Basic Health Plan</option>
+            <option>Premium Health Plan</option>
+            <option>Family Plan</option>
         </select>
 
         <button type="submit">Register</button>
 
     </form>
 
-    <!-- ✅ Footer Added -->
     <div class="footer">
         Already registered? <a href="#">Login here</a>
     </div>
@@ -157,11 +176,6 @@ function checkPassword() {
 
     document.getElementById("length").className =
         pass.length >= 8 ? "valid" : "invalid";
-}
-
-function togglePassword() {
-    let field = document.getElementById("password");
-    field.type = field.type === "password" ? "text" : "password";
 }
 </script>
 
