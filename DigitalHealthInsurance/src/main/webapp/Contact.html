@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-description">
+                        Let's connect. Get expert guidance and support for all your health insurance needs.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=vtalenthealthinsurance@gmail.com" style="color: var(--text-light); text-decoration: none;" target="_blank">vtalenthealthinsurance@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:1234X678X0" style="color: var(--text-light); text-decoration: none;">+91 1234X678X0</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>
+                                   3rd floor Namaskar Bhavan
+                                   Rd Number 1, opposite to AED Hospital
+                                   Kukatpally Housing Board Colony, K P H B Phase 1
+                                   Kukatpally, Hyderabad, Telangana 500072</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action= "https://formspree.io/f/xrewgeeb" method= "POST" class="contact-form" id="contactForm">
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+
+                    <div id="successMessage" style="
+                        display:none;
+                        margin-top:15px;
+                        padding:12px;
+                        background:#E6F7F5;
+                        color:#2E7D32;
+                        border:1px solid #5FA8A8;
+                        border-radius:8px;
+                        text-align:center;
+                        font-weight:500;">
+                    ✓ Thank you! Your message has been sent successfully.
+                    </div>
+                </form>
+            </div>
+            <div id="map" class="map-section">
+                <section class="map">
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.3732278042635!2d78.39830167414374!3d17.489688199852043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9120574e8403%3A0x95b9cf02fb4c3a45!2sVTalent!5e0!3m2!1sen!2sin!4v1781171212157!5m2!1sen!2sin" 
+                    width="600" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                </section>
+            </div>
+        </div>
+    </section>
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const form = this;
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            document.getElementById("successMessage").style.display = "block";
+            form.reset();
+
+            setTimeout(() => {
+                document.getElementById("successMessage").style.display = "none";
+            }, 5000);
+        } else {
+            alert("Failed to send message. Please try again.");
+        }
+
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+    }
+
+});
+</script>
+<iframe
+    src="AIAssistant\AIAssistant.html"
+    style="
+        position:fixed;
+        bottom:0;
+        right:0;
+        width:400px;
+        height:500px;
+        border:none;
+        z-index:99999;
+        background:transparent;">
+</iframe>
+</body>
+</html>
