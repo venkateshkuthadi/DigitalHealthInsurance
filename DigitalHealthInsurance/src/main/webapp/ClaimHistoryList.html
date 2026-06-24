@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Claim History List</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Claim History Records</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>History ID</th>
+                <th>Claim ID</th>
+                <th>Old Status</th>
+                <th>New Status</th>
+                <th>Action</th>
+                <th>Remarks</th>
+                <th>Changed Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Claim history records will be displayed here -->
+        </tbody>
+
+    </table>
+
+    <a href="ClaimHistorySearch.html" class="back-btn">
+        Back to Search
+    </a>
+
+</div>
+
+</body>
+</html>
